@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-interface Prop{
+interface Prop {
   items: string[];
-  heading: string
-
+  heading: string;
+  onSelectItem: (item: string) => void;
 }
 
-function ListGroup({items, heading}: Prop) {
+function ListGroup({ items, heading, onSelectItem }: Prop) {
   // Hook (function that allows to tap in react built in function)
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
@@ -18,8 +18,15 @@ function ListGroup({items, heading}: Prop) {
       <ul className="list-group">
         {items.map((item, index) => (
           <li
-            className={selectedIndex === index? "list-group-item active": "list-group-item"}
-            onClick={() => setSelectedIndex(index)}
+            className={
+              selectedIndex === index
+                ? "list-group-item active"
+                : "list-group-item"
+            }
+            onClick={() => {
+              setSelectedIndex(index);
+              onSelectItem(item);
+            }}
             key={item}
           >
             {" "}
