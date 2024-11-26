@@ -1,11 +1,12 @@
-import Alert from "./components/Alert";
+import Button from "./components/Button";
 
 function App() {
+  let buttonColor = "btn-secondary";
   return (
     <div>
-      <Alert>
-        Hello <span>World</span>
-      </Alert>
+      <Button buttonColor={buttonColor}>
+        Press Button
+      </Button>
     </div>
   );
 }
