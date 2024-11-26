@@ -4,7 +4,7 @@ function App() {
   let buttonColor = "btn-secondary";
   return (
     <div>
-      <Button buttonColor={buttonColor}>
+      <Button color="danger" onClick={() => console.log("Clicked")}>
         Press Button
       </Button>
     </div>
